@@ -91,11 +91,12 @@
         android:text="0" />
 
     <Button
+        android:text="В корзину"
+        android:onClick="addToCart"
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="В корзину" />
+        android:textSize="15sp" />
 
 
 </LinearLayout>

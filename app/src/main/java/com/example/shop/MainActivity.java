@@ -3,10 +3,13 @@ package com.example.shop;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.*;
 import android.os.Bundle;
+import android.preference.EditTextPreference;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Spinner;
@@ -21,11 +24,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     HashMap animals;
     String aniname;
     double price;
+    EditText uNameED;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        uNameED = findViewById(R.id.editTextTextPersonName);
         createSpinner();
         createAnimals();
     }
@@ -93,11 +98,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             default:
                 ImageView2.setImageResource(R.drawable.capibara);
                 break;
+
         }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void addToCart(View view) {
+        order order = new order();
+        order.uName = findViewById(R.id.editTextTextPersonName).toString();
+        Log.d("uName", order.uName);
+        order.gName = aniname;
+        Log.d("gName", order.gName);
+        order.kol = kol;
+        Log.d("kol",""+ order.kol);
+        order.orderpr = kol * price;
+        Log.d("orderpr", ""+ order.orderpr);
     }
 }
