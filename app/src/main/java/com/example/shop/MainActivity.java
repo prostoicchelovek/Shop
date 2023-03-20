@@ -2,6 +2,8 @@ package com.example.shop;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.*;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.util.Log;
@@ -117,5 +119,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d("kol",""+ order.kol);
         order.orderpr = kol * price;
         Log.d("orderpr", ""+ order.orderpr);
+        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+        orderIntent.putExtra("uNameIntent",order.uName);
+        startActivity(orderIntent);
     }
 }
